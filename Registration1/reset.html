@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script>
+            function check(){
+                password=document.getElementById("pwd").value;
+                rpassword=document.getElementById("rpwd").value;
+                if(password == rpassword){
+                    return true;
+                }else{
+                    alert("password and repeat password does not match");
+                 return false;   
+                }   
+            }
+        </script>
+        <link rel="stylesheet" href="bootstrap.min.css"/>
+    </head>
+    <body>
+        <form action="reset.php" method="post" onsubmit="return check()">
+        <table class="table table-striped table-hover table-condensed">
+            <tr>
+                <td>New Password :</td>
+                <td><input type="password" id="pwd" name="pwd" placeholder="enter password"/></td>
+            </tr>
+             <tr>
+                <td>Repeat Password :</td>
+                <td><input type="password" id="rpwd" name="rpwd" placeholder="enter password again"/></td>
+            </tr>
+            <tr>
+                <td>
+                <input type="submit" value="submit"/>
+                </td>
+            </tr>
+        </table>
+        </form>
+    </body>
+</html>

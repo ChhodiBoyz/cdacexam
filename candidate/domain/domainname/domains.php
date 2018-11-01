@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    /* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000px;
+}
+	/* flip the pane when hovered */
+	.flip-container:hover .flipper, .flip-container.hover .flipper {
+		transform: rotateY(180deg);
+	}
+
+.flip-container, .front, .back {
+	width: 300px;
+	height: 300px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 0.6s;
+	transform-style: preserve-3d;
+
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+}
+    </style>
+</head>
+<body style="height:100% width:100% w3-margin">
+    
+
+<div class="w3-row-padding w3-teal w3-margin-top">
+       
+       <div class="w3-container w3-border w3-margin-top w3-round w3-col s3" style="width:300px height: 300px">
+
+       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+           <div class="flipper">
+           
+		<div class="front">
+        <img src="web-development-ahmedabad.png" alt="web tech" style="width:100%">
+        </div>
+        
+        
+       <div class="back">
+          <h5>DESCRIPTION <a href="http://localhost/cdacexam/candidate/chapterpage/chapter1.php">more..</a></h5>
+        </div>
+           </div>
+           </div>
+           </div>
+    
+        <div class="w3-container w3-border w3-margin-top w3-round w3-col s3" style="width:300px height: 300px">
+
+       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+           <div class="flipper">
+           
+		<div class="front">
+        <img src="transparent-background-android-11.png" alt="android" style="width:100%">
+        </div>
+        
+        
+       <div class="back">
+          <h5>DESCRIPTION <a href="fake.htm">more..</a></h5>
+        </div>
+           </div>
+           </div>
+           </div>
+           
+            <div class="w3-container w3-border w3-margin-top w3-round w3-col s3" style="width:300px height: 300px">
+
+       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+           <div class="flipper">
+           
+		<div class="front">
+        <img src="game-controller-clip-art-video-game-controller-clipart-clipart-panda-free-clipart-images-printable.png" alt="gaming" style="width:100%">
+        </div>
+        
+        
+       <div class="back">
+          <h5>DESCRIPTION <a href="fake.htm">more..</a></h5>
+        </div>
+           </div>
+           </div>
+           </div>
+    
+     <div class="w3-container w3-border w3-margin-top w3-round w3-col s3" style="width:300px height: 300px">
+
+       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+           <div class="flipper">
+           
+		<div class="front">
+        <img src="security.png" alt="it security" style="width:100%">
+        </div>
+        
+        
+       <div class="back">
+          <h5>DESCRIPTION <a href="fake.htm">more..</a></h5>
+        </div>
+           </div>
+           </div>
+           </div>
+    
+    
+    </div>  
+      
+      
+      
+<div class="w3-row-padding w3-teal w3-margin-bottom">
+       
+       <div class="w3-container w3-border w3-margin-top w3-round w3-col s3" style="width:300px height: 300px">
+
+       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+           <div class="flipper">
+           
+		<div class="front">
+        <img src="robo.png" alt="robotics" style="width:100%">
+        </div>
+        
+        
+       <div class="back">
+          <h5>DESCRIPTION <a href="fake.htm">more..</a></h5>
+               </div>
+           </div>
+           </div>
+           </div>
+    
+              <div class="w3-container w3-border w3-margin-top w3-round w3-col s3" style="width:300px height: 300px">
+
+       <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+           <div class="flipper">
+           
+		<div class="front">
+        <img src="iotre.png" alt="iot" style="width:100%">
+        </div>
+        
+        
+       <div class="back">
+          <h5>DESCRIPTION <a href="fake.htm">more..</a></h5>
+        </div>
+           </div>
+           </div>
+           </div>
+            
+           <div class="w3-row-padding w3-teal w3-margin-bottom">
+    </div>    
+               
+                
+</div>
+        
+ 
+        
+</body>
+</html>
