@@ -11,14 +11,12 @@
     if($count==1){
         $row=mysqli_fetch_array($result);
         $salt=$row['salt'];
-        $name=$row['cname'];
-        $_SESSION['cname']=$name;
         //echo $salt;
         $password=$password.$salt;
         $password=base64_encode($password);
         if($password==$row['password']&&$row['confirmed']==1){
-            header("LOCATION: login(4).php");
-         }else{
+            echo "success";
+        }else{
             header("LOCATION: login(4).php?msg=INAVLID USERNAME OR PASSWORD");
         }
 //       

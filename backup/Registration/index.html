@@ -1,7 +1,4 @@
 	<!DOCTYPE html>
-    <?php
-        session_start();
-    ?>
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -24,31 +21,14 @@
             function invalid(){
                 alert("invalid username or password");
             }
-            
+        </script>
+        <script>
             function convert(){
-                                password=document.getElementById("pwd").value;
-                                password=md5(password);
-                                //password=Base64.encode(password);
-                                document.getElementById("pwd").value=password;
-                                }
-             function convert1(){
-                password=document.getElementById("pwd1").value;
-                rpassword=document.getElementById("rpwd").value;
-                if(password==rpassword){
+                password=document.getElementById("pwd").value;
                 password=md5(password);
-                rpassword=md5(rpassword);
-                document.getElementById("pwd1").value=password;
-                document.getElementById("rpwd").value=rpassword;
-                return true;
-                }else{
-                    alert("password and repeat password does not match");
-                    document.getElementById("pwd1").value=null;
-                    document.getElementById("rpwd").value=null;
-                    return false;
-                }
+                //password=Base64.encode(password);
+                document.getElementById("pwd").value=password;
             }
-        
-                        
         </script>
         
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
@@ -80,13 +60,7 @@
 			  			</div>
 			  			<div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
 			  				<a href="tel:+953 012 3654 896"><span class="lnr lnr-phone-handset"></span> <span class="text">+953 012 3654 896</span></a>
-			  				<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">support@colorlib.com</span></a>
-                            <?php
-                                if(isset($_SESSION['cname']) != null){
-                                    echo $_SESSION['cname'];
-                                }
-                            
-                            ?>
+			  				<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">support@colorlib.com</span></a>			
 			  			</div>
 			  		</div>			  					
 	  			</div>
@@ -102,12 +76,9 @@
 			          <li><a href="about.html">About</a></li>
 			          <li><a href="gallery.html">Gallery</a></li>          					          		          
 					  <li><a href="contact.html">Contact</a></li>
-                        <?php if(isset($_SESSION['cname']) == null){ ?>
 					  <li><a href="#" data-toggle="modal" data-target="#myModal1">login</a></li>
 					  <li><a href="#" data-toggle="modal" data-target="#myModal2">signup</a></li>
-                        <?php  }else{  ?>
-                      <li><a href="logout.php">Logout</a></li>
-                        <?php } ?>
+
 
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
@@ -139,40 +110,94 @@
 			<section class="feature-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>learn by domain</h4>
+									<h4>Learn Online Courses</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										Usage of the Internet is becoming more common due to rapid advancement
 										of technology.
 									</p>
-									<a href="http://localhost/cdacexam/candidate/domain/domainname/domains.php">proceed</a>									
+									<a href="#" data-toggle="modal" data-target="#myModal2">Join Now</a>									
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>learn by company</h4>
+									<h4>No.1 of platform</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.
 									</p>
-									<a href="http://localhost/cdacexam/candidate/domain/domainname/domains.php">proceed</a>									
+									<a href="#" data-toggle="modal" data-target="#myModal2">Join Now</a>									
 								</div>
 							</div>
 						</div>
-															
+						<div class="col-lg-4">
+							<div class="single-feature">
+								<div class="title">
+									<h4>Huge Library</h4>
+								</div>
+								<div class="desc-wrap">
+									<p>
+										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
+									</p>
+									<a href="#" data-toggle="modal" data-target="#myModal2">Join Now</a>									
+								</div>
+							</div>
+						</div>												
 					</div>
 				</div>	
 			</section>
 			<!-- End feature Area -->
 					
-		
+			<!-- Start popular-course Area -->
+					<section class="blog-area section-gap" id="blog">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Popular Courses we offer</h1>
+								<p>There is a moment in the life of any aspiring.</p>
+							</div>
+						</div>
+					</div>					
+					<div class="row justify-content-center">
+						
+						<div class="col-lg-3  single-blog">
+							<div class="thumb">
+										<img class="img-fluid" src="img/p1.jpg" alt="">
+							</div>
+							<br>
+							
+								<h5>Learn by domain</h5>
+							
+							<p>
+								Plantronics with its GN Netcom wireless headset creates the next generation of wireless headset and other products such as wireless.
+							</p>
+							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>									
+						</div>
+						<div class="col-lg-3  single-blog">
+							<div class="thumb">
+										<img class="img-fluid" src="img/p4.jpg" alt="">
+							</div>
+							<br>
+							
+								<h5>Learn by company</h5>
+							
+							<p>
+								About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet 
+							</p>
+							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>							
+						</div>							
+					</div>
+				</div>	
+			</section>
+			<!-- End popular-course Area -->
 			
 			<!-- Start upcoming-event Area -->
 			<section class="upcoming-event-area section-gap">
@@ -504,7 +529,7 @@
                <div class="modal fade" id="myModal1">
                     <div class="modal-dialog modal-dialog-centered modal-sm">
                       <div class="modal-content">
-                        <form action="login.php" method="POST" onsubmit="return convert()">        
+                        <form action="login.php" method="POST" onsubmit="convert()">        
 						<!-- Modal Header -->
                         <div class="modal-header">
                           <h4 class="modal-title">Login</h4>
@@ -514,12 +539,12 @@
                         <!-- Modal body -->
                          <div class="modal-body">
                           <div class="input-group mb-3">
-                                        <input type="number" class="form-control" placeholder="registration number" name="regno" required>
+                                        <input type="number" class="form-control" placeholder="registration number" required>
                                       </div>
                          
                          
                           <div class="input-group mb-3">
-                                    <input type="password" id="pwd" class="form-control" placeholder="password" name="pwd" required>
+                                    <input type="password" class="form-control" placeholder="password" required>
                                   </div>
                                   
                                  
@@ -528,7 +553,7 @@
                         
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                                <input type="submit" class="btn btn-primary"  style=" font-family: Arial" value="login">
+                                <button type="submit" class="btn btn-primary"  style=" font-family: Arial">login</button>
                         </div>
                           </form>
                         
@@ -542,7 +567,7 @@
                       <div class="modal fade" id="myModal2">
                     <div class="modal-dialog modal-dialog-centered modal-sm">
                       <div class="modal-content">
-                         <form action="register.php" method="post" onsubmit="return convert1()">
+                         <form action="#">
                         <!-- Modal Header -->
                         <div class="modal-header">
                           <h4 class="modal-title">Signup</h4>
@@ -552,14 +577,12 @@
                         <!-- Modal body -->
                          <div class="modal-body">
                           <div class="input-group mb-3">
-                                        <input type="number" class="form-control" placeholder="enter Registration Number" name="regno" required>
+                                        <input type="number" class="form-control" placeholder="registration number" required>
                                       </div>
-                        <div class="input-group mb-3">
-                                        <input type="password" class="form-control" placeholder="enter password" name="password" id="pwd1" required>
-                         </div>
+                         
                          
                           <div class="input-group mb-3">
-                                    <input type="password" class="form-control" placeholder="enter password again" name="repeatpassword" id="rpwd" required>
+                                    <input type="password" class="form-control" placeholder="password" required>
                                   </div>
                                   
                                  
@@ -576,9 +599,7 @@
                     </div>
                     </div>
             
-                      <script>
-                            </script>
-      
+            
             
             
             
@@ -588,7 +609,6 @@
 					<?php if(isset($_GET['msg'])) 
 					{ ?> <script> invalid(); </script><?php
 						}?>
-						
 			
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

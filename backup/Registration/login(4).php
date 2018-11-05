@@ -1,7 +1,4 @@
-	<!DOCTYPE html>
-    <?php
-        session_start();
-    ?>
+	<?php session_start(); ?>
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
@@ -21,9 +18,6 @@
 		<script lang="javascript" src="md5.js"></script>
         <script lang="javascript" src="base64.js"></script>
         <script>
-            function invalid(){
-                alert("invalid username or password");
-            }
             
             function convert(){
                                 password=document.getElementById("pwd").value;
@@ -80,13 +74,7 @@
 			  			</div>
 			  			<div class="col-lg-6 col-sm-6 col-4 header-top-right no-padding">
 			  				<a href="tel:+953 012 3654 896"><span class="lnr lnr-phone-handset"></span> <span class="text">+953 012 3654 896</span></a>
-			  				<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">support@colorlib.com</span></a>
-                            <?php
-                                if(isset($_SESSION['cname']) != null){
-                                    echo $_SESSION['cname'];
-                                }
-                            
-                            ?>
+			  				<a href="mailto:support@colorlib.com"><span class="lnr lnr-envelope"></span> <span class="text">support@colorlib.com</span></a>			
 			  			</div>
 			  		</div>			  					
 	  			</div>
@@ -102,12 +90,9 @@
 			          <li><a href="about.html">About</a></li>
 			          <li><a href="gallery.html">Gallery</a></li>          					          		          
 					  <li><a href="contact.html">Contact</a></li>
-                        <?php if(isset($_SESSION['cname']) == null){ ?>
 					  <li><a href="#" data-toggle="modal" data-target="#myModal1">login</a></li>
 					  <li><a href="#" data-toggle="modal" data-target="#myModal2">signup</a></li>
-                        <?php  }else{  ?>
-                      <li><a href="logout.php">Logout</a></li>
-                        <?php } ?>
+
 
 			        </ul>
 			      </nav><!-- #nav-menu-container -->		    		
@@ -139,40 +124,94 @@
 			<section class="feature-area">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>learn by domain</h4>
+									<h4>Learn Online Courses</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										Usage of the Internet is becoming more common due to rapid advancement
 										of technology.
 									</p>
-									<a href="http://localhost/cdacexam/candidate/domain/domainname/domains.php">proceed</a>									
+									<a href="#" data-toggle="modal" data-target="#myModal2">Join Now</a>									
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>learn by company</h4>
+									<h4>No.1 of platform</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.
 									</p>
-									<a href="http://localhost/cdacexam/candidate/domain/domainname/domains.php">proceed</a>									
+									<a href="#" data-toggle="modal" data-target="#myModal2">Join Now</a>									
 								</div>
 							</div>
 						</div>
-															
+						<div class="col-lg-4">
+							<div class="single-feature">
+								<div class="title">
+									<h4>Huge Library</h4>
+								</div>
+								<div class="desc-wrap">
+									<p>
+										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
+									</p>
+									<a href="#" data-toggle="modal" data-target="#myModal2">Join Now</a>									
+								</div>
+							</div>
+						</div>												
 					</div>
 				</div>	
 			</section>
 			<!-- End feature Area -->
 					
-		
+			<!-- Start popular-course Area -->
+					<section class="blog-area section-gap" id="blog">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Popular Courses we offer</h1>
+								<p>There is a moment in the life of any aspiring.</p>
+							</div>
+						</div>
+					</div>					
+					<div class="row justify-content-center">
+						
+						<div class="col-lg-3  single-blog">
+							<div class="thumb">
+										<img class="img-fluid" src="img/p1.jpg" alt="">
+							</div>
+							<br>
+							
+								<h5>Learn by domain</h5>
+							
+							<p>
+								Plantronics with its GN Netcom wireless headset creates the next generation of wireless headset and other products such as wireless.
+							</p>
+							<a href="http://localhost/cdacexam/candidate/domain/domainname/domains.php" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>									
+						</div>
+						<div class="col-lg-3  single-blog">
+							<div class="thumb">
+										<img class="img-fluid" src="img/p4.jpg" alt="">
+							</div>
+							<br>
+							
+								<h5>Learn by company</h5>
+							
+							<p>
+								About 64% of all on-line teens say that do things online that they wouldn’t want their parents to know about.   11% of all adult internet 
+							</p>
+							<a href="#" class="details-btn d-flex justify-content-center align-items-center"><span class="details">Details</span><span class="lnr lnr-arrow-right"></span></a>							
+						</div>							
+					</div>
+				</div>	
+			</section>
+			<!-- End popular-course Area -->
 			
 			<!-- Start upcoming-event Area -->
 			<section class="upcoming-event-area section-gap">
