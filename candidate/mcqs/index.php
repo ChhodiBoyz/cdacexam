@@ -25,7 +25,7 @@
 			<?php
 				$sql = "select * from uploadquestions where did=1 and chid=1";
 				$result = mysqli_query($con,$sql);
-				
+				$i=1;
 				while($row = mysqli_fetch_assoc($result)){
 					
 				
@@ -36,18 +36,18 @@
                     <h3><?php echo $row["question"];?></h3>
                     
                     <div>
-                        <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
-                        <label for="question-1-answers-A">A) <?php echo $row["op1"];?></label><br>
-						<input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
-                        <label for="question-1-answers-B">B) <?php echo $row["op2"];?></label><br>
-						 <input type="radio" name="question-1-answers" id="question-1-answers-C" value="C" />
-                        <label for="question-1-answers-C">C) <?php echo $row["op3"];?></label><br>
-						<input type="radio" name="question-1-answers" id="question-1-answers-D" value="D" />
-                        <label for="question-1-answers-D">D) <?php echo $row["op4"];?></label><br>
+                        <input type="radio" name="<?php echo $i; ?>" id="question-1-answers-A" value="A" />
+                        <label for="question-<?php echo $i; ?>-answers-A">A) <?php echo $row["op1"];?></label><br>
+						<input type="radio" name="<?php echo $i; ?>" id="question-1-answers-B" value="B" />
+                        <label for="question-<?php echo $i; ?>-answers-B">B) <?php echo $row["op2"];?></label><br>
+						 <input type="radio" name="<?php echo $i; ?>" id="question-1-answers-C" value="C" />
+                        <label for="<?php echo $i; ?>">C) <?php echo $row["op3"];?></label><br>
+						<input type="radio" name="<?php echo $i; ?>" id="question-1-answers-D" value="D" />
+                        <label for="question-<?php echo $i; ?>-answers-D">D) <?php echo $row["op4"];?></label><br>
                     </div>
                 
                 </li>
-				<?php }?>
+				<?php $i++; }?>
                 
             </ol>
             

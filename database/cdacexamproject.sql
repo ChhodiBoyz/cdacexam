@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 05, 2018 at 06:02 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: Nov 25, 2018 at 02:15 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
+CREATE TABLE `admin` (
   `aid` int(11) NOT NULL,
   `aname` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL
@@ -41,21 +40,19 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Table structure for table `candidate`
 --
 
-DROP TABLE IF EXISTS `candidate`;
-CREATE TABLE IF NOT EXISTS `candidate` (
-  `cid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `candidate` (
+  `cid` int(11) NOT NULL,
   `cname` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `phno` varchar(200) NOT NULL,
-  PRIMARY KEY (`cid`)
-) ENGINE=MyISAM AUTO_INCREMENT=1601227183 DEFAULT CHARSET=latin1;
+  `phno` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `candidate`
 --
 
 INSERT INTO `candidate` (`cid`, `cname`, `email`, `phno`) VALUES
-(1601227182, 'Aakash Kumar', 'aakash.nanda99@gmail.com', '7008313332');
+(1601227184, 'Sarthak saurav kar', 'sarthakkaryo@gmail.com', '7008581379');
 
 -- --------------------------------------------------------
 
@@ -63,8 +60,7 @@ INSERT INTO `candidate` (`cid`, `cname`, `email`, `phno`) VALUES
 -- Table structure for table `candidateexam`
 --
 
-DROP TABLE IF EXISTS `candidateexam`;
-CREATE TABLE IF NOT EXISTS `candidateexam` (
+CREATE TABLE `candidateexam` (
   `cid` int(11) NOT NULL,
   `eid` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -75,8 +71,7 @@ CREATE TABLE IF NOT EXISTS `candidateexam` (
 -- Table structure for table `candidatemock`
 --
 
-DROP TABLE IF EXISTS `candidatemock`;
-CREATE TABLE IF NOT EXISTS `candidatemock` (
+CREATE TABLE `candidatemock` (
   `cid` int(11) NOT NULL,
   `mid` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -87,14 +82,12 @@ CREATE TABLE IF NOT EXISTS `candidatemock` (
 -- Table structure for table `chapter`
 --
 
-DROP TABLE IF EXISTS `chapter`;
-CREATE TABLE IF NOT EXISTS `chapter` (
-  `chid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `chapter` (
+  `chid` int(11) NOT NULL,
   `studytime` varchar(200) NOT NULL DEFAULT '0',
   `cname` varchar(200) NOT NULL,
   `syallabus` varchar(400) NOT NULL,
-  `did` int(11) NOT NULL,
-  PRIMARY KEY (`chid`)
+  `did` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -103,11 +96,9 @@ CREATE TABLE IF NOT EXISTS `chapter` (
 -- Table structure for table `company`
 --
 
-DROP TABLE IF EXISTS `company`;
-CREATE TABLE IF NOT EXISTS `company` (
-  `comid` int(11) NOT NULL AUTO_INCREMENT,
-  `cname` varchar(200) NOT NULL,
-  PRIMARY KEY (`comid`)
+CREATE TABLE `company` (
+  `comid` int(11) NOT NULL,
+  `cname` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -116,8 +107,7 @@ CREATE TABLE IF NOT EXISTS `company` (
 -- Table structure for table `companydomain`
 --
 
-DROP TABLE IF EXISTS `companydomain`;
-CREATE TABLE IF NOT EXISTS `companydomain` (
+CREATE TABLE `companydomain` (
   `comid` int(11) NOT NULL DEFAULT '0',
   `did` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -128,12 +118,10 @@ CREATE TABLE IF NOT EXISTS `companydomain` (
 -- Table structure for table `domain`
 --
 
-DROP TABLE IF EXISTS `domain`;
-CREATE TABLE IF NOT EXISTS `domain` (
-  `did` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `domain` (
+  `did` int(11) NOT NULL,
   `dname` varchar(200) NOT NULL,
-  `domainworth` int(11) NOT NULL,
-  PRIMARY KEY (`did`)
+  `domainworth` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -142,12 +130,10 @@ CREATE TABLE IF NOT EXISTS `domain` (
 -- Table structure for table `exam`
 --
 
-DROP TABLE IF EXISTS `exam`;
-CREATE TABLE IF NOT EXISTS `exam` (
-  `eid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `exam` (
+  `eid` int(11) NOT NULL,
   `time` varchar(200) NOT NULL,
-  `noofquestions` int(11) NOT NULL,
-  PRIMARY KEY (`eid`)
+  `noofquestions` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -156,14 +142,12 @@ CREATE TABLE IF NOT EXISTS `exam` (
 -- Table structure for table `mockexam`
 --
 
-DROP TABLE IF EXISTS `mockexam`;
-CREATE TABLE IF NOT EXISTS `mockexam` (
-  `mid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `mockexam` (
+  `mid` int(11) NOT NULL,
   `dateofexam` varchar(200) NOT NULL,
   `noofquestions` int(11) NOT NULL,
   `time` varchar(200) NOT NULL,
-  `aid` int(11) NOT NULL,
-  PRIMARY KEY (`mid`)
+  `aid` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -172,8 +156,7 @@ CREATE TABLE IF NOT EXISTS `mockexam` (
 -- Table structure for table `questions`
 --
 
-DROP TABLE IF EXISTS `questions`;
-CREATE TABLE IF NOT EXISTS `questions` (
+CREATE TABLE `questions` (
   `q1` varchar(40) DEFAULT NULL,
   `q2` varchar(40) DEFAULT NULL,
   `q3` varchar(40) DEFAULT NULL,
@@ -231,11 +214,30 @@ CREATE TABLE IF NOT EXISTS `questions` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `quizresult`
+--
+
+CREATE TABLE `quizresult` (
+  `cid` int(15) NOT NULL,
+  `chid` int(5) NOT NULL,
+  `did` int(5) NOT NULL,
+  `result` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `quizresult`
+--
+
+INSERT INTO `quizresult` (`cid`, `chid`, `did`, `result`) VALUES
+(1, 1, 1, 2);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `registered_users`
 --
 
-DROP TABLE IF EXISTS `registered_users`;
-CREATE TABLE IF NOT EXISTS `registered_users` (
+CREATE TABLE `registered_users` (
   `cid` int(11) NOT NULL,
   `cname` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
@@ -243,8 +245,7 @@ CREATE TABLE IF NOT EXISTS `registered_users` (
   `contact` varchar(200) NOT NULL,
   `confirmed` int(11) NOT NULL DEFAULT '0',
   `confirmed_code` int(11) NOT NULL DEFAULT '0',
-  `salt` varchar(200) NOT NULL,
-  PRIMARY KEY (`cid`)
+  `salt` varchar(200) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -252,8 +253,7 @@ CREATE TABLE IF NOT EXISTS `registered_users` (
 --
 
 INSERT INTO `registered_users` (`cid`, `cname`, `password`, `email`, `contact`, `confirmed`, `confirmed_code`, `salt`) VALUES
-(1, 'a', 'p', 'p', '12', 1, 0, '123asd456'),
-(1601227182, 'Aakash Kumar', 'MWExZGM5MWM5MDczMjVjNjkyNzFkZGYwYzk0NGJjNzIyMmVlOTlvbzMzZWVjY3l5OTlycnV1a2t5eWtrMzN4eHd3aGhqajc3aWk1NXd3MDBubjExbm4zM25ubm5ra2xsZGR5eTExeHg=', 'aakash.nanda99@gmail.com', '7008313332', 1, 0, '22ee99oo33eeccyy99rruukkyykk33xxwwhhjj77ii55ww00nn11nn33nnnnkkllddyy11xx');
+(1601227184, 'Sarthak saurav kar', 'MjAyY2I5NjJhYzU5MDc1Yjk2NGIwNzE1MmQyMzRiNzA5OW5uZWV1dWVlcHBoaDAwbm43N3h4Z2d5eTAwb29lZTc3aWlra2VldHRra2pqdXViYmtrNzc1NWxsaGg0NDQ0cnI4OGJieXk=', 'sarthakkaryo@gmail.com', '7008581379', 0, 1595334689, '99nneeuueepphh00nn77xxggyy00ooee77iikkeettkkjjuubbkk7755llhh4444rr88bbyy');
 
 -- --------------------------------------------------------
 
@@ -261,8 +261,7 @@ INSERT INTO `registered_users` (`cid`, `cname`, `password`, `email`, `contact`, 
 -- Table structure for table `result`
 --
 
-DROP TABLE IF EXISTS `result`;
-CREATE TABLE IF NOT EXISTS `result` (
+CREATE TABLE `result` (
   `rid` int(11) NOT NULL,
   `eid` int(11) NOT NULL,
   `result` varchar(200) DEFAULT NULL
@@ -274,9 +273,8 @@ CREATE TABLE IF NOT EXISTS `result` (
 -- Table structure for table `uploadquestions`
 --
 
-DROP TABLE IF EXISTS `uploadquestions`;
-CREATE TABLE IF NOT EXISTS `uploadquestions` (
-  `qid` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `uploadquestions` (
+  `qid` int(11) NOT NULL,
   `chid` int(11) NOT NULL,
   `did` int(11) NOT NULL,
   `question` varchar(200) NOT NULL,
@@ -284,17 +282,120 @@ CREATE TABLE IF NOT EXISTS `uploadquestions` (
   `op2` varchar(50) NOT NULL,
   `op3` varchar(50) NOT NULL,
   `op4` varchar(50) NOT NULL,
-  `ans` varchar(50) NOT NULL,
-  PRIMARY KEY (`qid`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `ans` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `uploadquestions`
 --
 
 INSERT INTO `uploadquestions` (`qid`, `chid`, `did`, `question`, `op1`, `op2`, `op3`, `op4`, `ans`) VALUES
-(1, 1, 1, 'What is full form of cs?', 'counter strike', 'combat strike', 'computer science ', 'cs', 'computer science'),
-(2, 1, 1, 'what is the full form ee?', 'Electrical Engg', 'EE', 'EE2', 'EE#', 'Electrical Engg');
+(1, 1, 1, 'What is full form of cs?', 'counter strike', 'combat strike', 'computer science ', 'cs', 'C'),
+(2, 1, 1, 'what is the full form ee?', 'Electrical Engg', 'EE', 'EE2', 'EE#', 'A');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `candidate`
+--
+ALTER TABLE `candidate`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- Indexes for table `chapter`
+--
+ALTER TABLE `chapter`
+  ADD PRIMARY KEY (`chid`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`comid`);
+
+--
+-- Indexes for table `domain`
+--
+ALTER TABLE `domain`
+  ADD PRIMARY KEY (`did`);
+
+--
+-- Indexes for table `exam`
+--
+ALTER TABLE `exam`
+  ADD PRIMARY KEY (`eid`);
+
+--
+-- Indexes for table `mockexam`
+--
+ALTER TABLE `mockexam`
+  ADD PRIMARY KEY (`mid`);
+
+--
+-- Indexes for table `quizresult`
+--
+ALTER TABLE `quizresult`
+  ADD PRIMARY KEY (`chid`);
+
+--
+-- Indexes for table `registered_users`
+--
+ALTER TABLE `registered_users`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- Indexes for table `uploadquestions`
+--
+ALTER TABLE `uploadquestions`
+  ADD PRIMARY KEY (`qid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `candidate`
+--
+ALTER TABLE `candidate`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1601227185;
+
+--
+-- AUTO_INCREMENT for table `chapter`
+--
+ALTER TABLE `chapter`
+  MODIFY `chid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `comid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `domain`
+--
+ALTER TABLE `domain`
+  MODIFY `did` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `exam`
+--
+ALTER TABLE `exam`
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `mockexam`
+--
+ALTER TABLE `mockexam`
+  MODIFY `mid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `uploadquestions`
+--
+ALTER TABLE `uploadquestions`
+  MODIFY `qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

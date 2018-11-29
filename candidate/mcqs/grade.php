@@ -10,27 +10,43 @@
 </head>
 
 <body>
-
+    <?php
+	include 'connect.php';
+	$sql="select * from uploadquestions where did=1 and chid=1";
+    $result= mysqli_query($con,$sql);
+    $row= mysqli_fetch_array($result);
+    $num=mysqli_num_rows($result);
+    $i=1;
+    $totalCorrect = 0;
+?>
+    
 	<div id="page-wrap">
 
-		<h1>Chapter Quiz</h1>
-		
-        <?php
+        <center><h1>Chapter Quiz</h1></center>
+	<?php
+    while($num != 0){
             
-            $answer1 = $_POST['question-1-answers'];
-            $answer2 = $_POST['question-2-answers'];
-           
-            $totalCorrect = 0;
+            $answer = $_POST[$i];
+            $ans=$row['ans'];       
+           //echo $answer."<br>";
+           //echo $ans."<br>"; 
+            if ($answer == $ans) { $totalCorrect++; }
             
-            if ($answer1 == "B") { $totalCorrect++; }
-            if ($answer2 == "C") { $totalCorrect++; }
-            
-            echo "<div id='results'>$totalCorrect / 5 correct</div>";
             
         ?>
-	
+	   
 	</div>
-	
+	<?php $num--; $i++; 
+     $row= mysqli_fetch_array($result);
+       } 
+    echo "<center><div id='results'> $totalCorrect / 5 correct</div></center>"; 
+        $regno=$_SESSION['regno'];
+        $sql="insert into quizresult values('$regno',1,1,'$totalCorrect')";    
+        $result=mysqli_query($con,$sql);
+        if($result){
+            echo "<center><b>Your result have been submitted succesfully</b></center>";
+        }
+    ?>
 	<script type="text/javascript">
 	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
