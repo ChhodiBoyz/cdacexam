@@ -2,7 +2,11 @@
     include 'db-connect.php';
     $regno=$_POST['regno'];
     $pwd=$_POST['password'];
-	//echo $regno.$pwd;
+    $filename=$_FILES['photo']['name'];
+    $tmpname=$_FILES['photo']['tmp_name'];
+    $photo=$regno.".jpg";
+	$status=move_uploaded_file($tmpname,"profile/pages/uploads/$photo");
+    //echo $regno.$pwd;
     $repeatpwd=$_POST['repeatpassword'];
     //$sql="select * from registered_users where cid='$regno'";
 	$stmt = $con->prepare("SELECT * FROM registered_users where cid=?");
@@ -42,14 +46,14 @@
 				}
 				
 				$confirmcode = rand();
-				$sql1 = "INSERT INTO registered_users VALUES('$regno','$cname','$pwd','$email','$contact',0,'$confirmcode','$str')";
+				$sql1 = "INSERT INTO registered_users VALUES('$regno','$cname','$pwd','$email','$contact',0,'$confirmcode','$str','$photo')";
 				
 				$result2 = mysqli_query($con,$sql1);
 				if($result2)
 				{
-					//echo "In here";
+                    //echo "In here";
 					$message="
-
+                    
 					Confirm your registration!!
                     Click on the link below.
                     http://localhost/cdacexam/Registration/emailconfirmation.php?regno=$regno&confirmcode=$confirmcode
@@ -86,12 +90,6 @@
 					{
 						echo "<h1>Mail Server Error</h1>";
 					}
-					
-					
-				
-				
-					
-					
 				}else {
 				echo 'ERROR :'.mysqli_error($con);
 				}

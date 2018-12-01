@@ -17,11 +17,10 @@
         $password=$password.$salt;
         $password=base64_encode($password);
         if($password==$row['password']&&$row['confirmed']==1){
-            header("LOCATION: login(4).php");
+            header("LOCATION: http://localhost/cdacpreplacement/Registration/profile/pages/index.php");
          }else{
-            header("LOCATION: login(4).php?msg=INAVLID USERNAME OR PASSWORD");
+            header("LOCATION: home.php?msg=INAVLID USERNAME OR PASSWORD");
         }
-//       
-    //    echo $password;
+//        echo $passwphp
     }
 ?>

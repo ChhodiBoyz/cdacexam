@@ -13,7 +13,7 @@
 		mysqli_query($con,"UPDATE registered_users SET confirmed=1 where cid=$regno");
 		mysqli_query($con,"UPDATE registered_users SET confirmed_code =0 where cid=$regno");
 		echo "<h1>Registration confirmed!<h1>";
-		header('Location: http://localhost/cdacexam/Registration/login(4).php');
+		header('Location: http://localhost/cdacexam/Registration/home.php');
 		
 	}else{
 		echo "Confirm code error";
