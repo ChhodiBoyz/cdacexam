@@ -1,11 +1,21 @@
 <?php
-
     putenv("PATH=C:\Program Files\Java\jdk1.8.0_141\bin");
 	$CC="javac";
-	$out="java Main";
+    $file = 'test.txt';
+    $searchfor = 'class';
+    header('Content-Type: text/plain');
+    $contents = file_get_contents($file);
+    $pattern = preg_quote($searchfor, '/');
+    $pattern = "/^.*$pattern.*\$/m";
+    if(preg_match_all($pattern, $contents, $matches)){
+        $test = $matches[0];
+        $name = explode(" ", $test[0]);
+        $cname= $name[2];
+    }
+	$out="java ".$cname;
 	$code=$_POST["code"];
 	$input=$_POST["input"];
-	$filename_code="Main.java";
+	$filename_code=$cname.".java";
 	$filename_in="input.txt";
 	$filename_error="error.txt";
 	$runtime_file="runtime.txt";
@@ -47,6 +57,7 @@
 		//echo "<pre>$runtime_error</pre>";
 		//echo "<pre>$output</pre>";
 		echo "$output";
+        
 		  //echo "<textarea id='div' class=\"form-control\" name=\"output\" rows=\"10\" cols=\"50\">$output</textarea><br><br>";
 	}
 	else if(!strpos($error,"error"))

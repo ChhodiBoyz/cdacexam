@@ -73,8 +73,8 @@
 
 
 </select><br><br>
-
-<label for="ta">Write Your Code</label>
+<!--<input type="text" name="class" id="class" placeholder="enter the classname of your"-->
+<label for="ta" >Write Your Code</label>
 <textarea class="form-control" name="code" rows="10" cols="50"></textarea><br><br>
 <label for="in">Enter Your Input</label>
 <textarea class="form-control" name="input" rows="10" cols="50"></textarea><br><br>
